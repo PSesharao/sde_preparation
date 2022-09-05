@@ -52,5 +52,5 @@ int main() {
     init_code() ; 
     Solution sol ; 
 
-    sol.generate(5) ; 
+    
 }
