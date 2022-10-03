@@ -18,6 +18,13 @@ say M deadlines in the worst case.
 Space Complexity: O(M) for an array that keeps track on which day which job is performed 
 if M is the maximum deadline available.
 
+Follow up : to solve this question in O(NlogN)
+
+Refer :
+https://www.spoj.com/problems/CLFLARR/ 
+
+to follow the same .
+
 */
 
 
