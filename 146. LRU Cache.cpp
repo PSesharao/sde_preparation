@@ -2,6 +2,23 @@
 
 https://leetcode.com/problems/lru-cache/
 
+
+Using unordered_map or map is giving TLE for larger test cases , we can use 
+
+vector<node*> map ; 
+
+and initialize it in constructor 
+
+    LRUCache(int cap) {
+        capacity = cap ;
+        head = new node(-1, -1);
+        tail = new node(-1, -1);
+        head -> next = tail;
+        tail -> prev = head;
+        size = 0 ; 
+        map = vector<node*>  (10009 , nullptr ) ; // as 0 <= key <= 104
+    }
+
 */
 
 
@@ -48,25 +65,30 @@ class LRUCache {
 public:
 
     int capacity ;
-    unordered_map < int, node * > map ; 
+    // unordered_map < int, node * > map ; 
+    vector<node*> map ; // (10009 , nullptr ) ; 
     //map < int, node * > map ; 
     node * head ;
     node * tail ;
-
+    int size  ; 
     LRUCache(int cap) {
         capacity = cap ;
         head = new node(-1, -1);
         tail = new node(-1, -1);
         head -> next = tail;
         tail -> prev = head;
+        size = 0 ; 
+        map = vector<node*>  (10009 , nullptr ) ; 
     }
     
     int get(int key) {
 
-        if (map.count(key) > 0 ) {
+        if (map[key]!=nullptr ) {
             node * resnode = map[key] ; 
             int res = resnode -> val;
             //map.erase(key);
+            //map.erase(map.begin() + key);
+            map[key] = nullptr ; 
             deletenode(resnode);
             addnode(new node(key , res ));
             map[key] = head -> next;
@@ -78,22 +100,28 @@ public:
     }
     
       void put(int key, int value) {
-            if (map.count(key) > 0 ) {
+            if (map[key]!=nullptr ) {
               node * existingnode = map[key];
               //map.erase(key);
+              //map.erase(map.begin() + key);
+              map[key] = nullptr ; 
               deletenode(existingnode);
             }
-            else if (map.size() == capacity) {
+            if (size == capacity) {
               // this will be least recently used node  
-              map.erase(tail -> prev -> key);
+              //map.erase(map.begin() + (tail -> prev -> key) );
+              map[tail -> prev -> key] = nullptr ;   
               deletenode(tail -> prev);
+              
             }
 
             addnode(new node(key, value));
             map[key] = head -> next;
+            
       }
 
     void addnode(node * newnode) {
+        size++ ; 
         node * temp = head -> next;
         newnode -> next = temp;
         newnode -> prev = head;
@@ -102,6 +130,7 @@ public:
     }
 
     void deletenode(node * delnode) {
+        size -- ; 
         node * delprev = delnode -> prev;
         node * delnext = delnode -> next;
         delprev -> next = delnext;
