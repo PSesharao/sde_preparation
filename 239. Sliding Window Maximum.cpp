@@ -11,7 +11,7 @@ front()  , back()
 
 We are following the similar approach to the nge , here we'll try to 
 implement previous greater element pattern and maintain the deque with 
-increasing order , and keeps removing elements from front if we cross 
+decreasing order , and keeps removing elements from front if we cross 
 the out of boundary k 
 
 
