@@ -39,7 +39,7 @@ public:
         int len1 = haystack.size() ; 
         int len2 = needle.size() ; 
 
-        for(int i=0 ; i<len1 ; i++ ){
+        for(int i=0 ; i<=len1-len2 ; i++ ){
             if( needle[0] == haystack[i] ){
                 int j ; 
                 for(j =0 ; j<len2 ; j++ )
