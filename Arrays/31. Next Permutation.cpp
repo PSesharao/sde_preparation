@@ -22,7 +22,7 @@ Let's take 1 3 5 4 2
 For any dictionary order , it will be always
 increasing from the back (atleast 1 element should follow this pattern Ex in 1 2 3 ) 
 
--> First step would to to find the breakpoint where this pattern breaks 
+-> First step would to find the breakpoint where this pattern breaks 
 
 i.e bp = A[i]<A[i+1]
 
