@@ -45,6 +45,8 @@ public:
             {
                 swap(nums[curr_pos] , nums[next_zero]) ; 
                 next_zero++ ; 
+				// no need to decrement curr_pos as we are traversing from the begining only we would have 
+				// known that already for sure that it is 1.
             }else if(nums[curr_pos] == 2){
                 swap(nums[curr_pos] , nums[next_two]) ; 
                 next_two -- ; 
