@@ -2,6 +2,10 @@
 
 https://leetcode.com/problems/rotate-image/
 
+==========================================
+Note : To reverse the matrix rows 
+reverse(M.begin(), M.end());
+==========================================
 
 Intuition: By observation, we see that the 
 first column of the original matrix is the reverse of the 
@@ -30,7 +34,7 @@ or
  4 5 6  => 6 5 4  => 2 5 8
  7 8 9     9 8 7     1 4 7
 
-
+ 
 
 
 */
@@ -60,6 +64,54 @@ void init_code()
 #endif
 }
 
+
+Naive approach : Taking the help of dummy matrix 
+
+class Solution {
+public:
+    void rotate(vector<vector<int>>& matrix) {
+        int N = matrix.size() ; 
+        vector<vector<int>>A(N , vector<int>(N , 0 )) ; // dummy matrix 
+
+        // placing the col in reverse direction in place of row
+        for(int r=0 ; r<N ; r++ ){
+            for(int c=0 ; c<N ; c++ )
+                A[r][c] = matrix[N-1-c][r] ;  
+        }
+
+        // copying back
+        for(int r=0 ; r<N ; r++ ){
+            for(int c=0 ; c<N ; c++ )
+                matrix[r][c] = A[r][c] ;
+               
+        }
+
+    }
+};
+
+int main() {
+    init_code() ; 
+    Solution sol ; 
+    vector<vector<int>>M = {{1,2,3},{4,5,6},{7,8,9}} ; 
+    cout << "Original :" << endl ; 
+    for(int i=0 ; i<M.size() ; i++){
+        for(int j=0 ; j<M[0].size() ; j++ )
+            cout << M[i][j] << " " ; 
+        cout << endl ; 
+    } 
+    sol.rotate(M) ; 
+    cout << "Rotated :" << endl ; 
+    for(int i=0 ; i<M.size() ; i++){
+        for(int j=0 ; j<M[0].size() ; j++ )
+            cout << M[i][j] << " " ; 
+        cout << endl ; 
+    } 
+    return 0 ; 
+}
+
+--------------------------------------------------------------------------------
+
+Best approach :
 
 class Solution {
 public:

@@ -2,6 +2,9 @@
 
 https://leetcode.com/problems/find-the-duplicate-number/
 
+As the size of the array is N+1 and the elements will be from [1,N]
+the indices should be from [0 , N] , so the elements can be indexible.
+
 Intuition: Since there is a duplicate number, we can always say that 
 cycle will be formed.
 
@@ -51,7 +54,7 @@ public:
         int fast = nums[0] ; 
 
         // do while because we are looking for 
-        // first collision should atlesat move slow and fast once . 
+        // first collision should atleast move slow and fast once . 
         do{
             slow = nums[slow] ; 
             fast = nums[nums[fast]] ; 
@@ -81,4 +84,19 @@ int main() {
     Solution sol ; 
 
     
+}
+
+Using cycle detection method:
+
+int main() {
+    init_code() ; 
+    Solution sol ; 
+    vector<int> A = {1,2 ,3 ,4 ,1} ; 
+    int xor_result = 0 ; 
+    for(int i=1 ; i<=A.size()-1 ; i++ )
+        xor_result = xor_result ^ i ; 
+    for(int i=0 ; i<A.size() ; i++ )
+        xor_result = xor_result ^ A[i] ; 
+    cout << "The duplicate is : " << xor_result ;  
+    return 0 ; 
 }
