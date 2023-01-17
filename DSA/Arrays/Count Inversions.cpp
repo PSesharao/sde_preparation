@@ -4,7 +4,7 @@ https://www.codingninjas.com/codestudio/problems/615?topList=striver-sde-sheet-p
 
 Here we should not worry about change in the order of the array 
 as in merge sort
-we will deep in one element, compare two elements(calculate inversion counts) , 
+we will deep down into one element, compare two elements(calculate inversion counts) , 
 and put it in a new array in sorted order.
 
 i.e we are calculating inversion before sorting . 

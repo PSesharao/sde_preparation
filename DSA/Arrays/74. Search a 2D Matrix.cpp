@@ -2,11 +2,30 @@
 
 https://leetcode.com/problems/search-a-2d-matrix/
 
+Here we need to consider the 2D array as the single 1D array
+
 Initially have a low index as the first index of the considered 1D matrix(i.e: 0) 
 and high index as the last index of the considered 1D matrix(i.e: (R*C)-1).
 
 Get the middle index as (low+high)/2.We can get the element at middle index 
 using matrix[middle/C][middle%C].
+
+Example : 
+
+[0,0] 0
+[0,1] 1
+[0,2] 2
+[0,3] 3
+
+[1,0] 4
+[1,1] 5
+[1,2] 6
+[1,3] 7
+
+[2,0] 8
+[2,1] 9
+[2,2] 10
+[2,3] 11
 
 */
 
