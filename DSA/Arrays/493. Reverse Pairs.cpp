@@ -7,7 +7,10 @@ Time Complexity : O( N log N ) + O (N) + O (N)
 Reason : O(N) – Merge operation , O(N) – counting operation 
 ( at each iteration of i , j doesn’t start from 0 . Both of them move linearly )
 
- ... Add the intuition soon 
+
+The inner loop increments right_index as long as left_array[left_index] > 2LL * right_array[right_index], meaning as long as the current element from the left subarray is greater than twice the current element from the right subarray. When this condition is no longer true, it means that right_index represents the count of reverse pairs for the current element in the left subarray, which is added to the overall count.
+
+
 */
 
 
@@ -38,12 +41,16 @@ void init_code()
 ll merge(int l , int mid , int r , vector<int>& arr){
     ll inversion_count = 0LL ;  
 
-    int j= mid+1 ; 
-    for(int i=l ; i<=mid ; i++){
-        while( j<=r and arr[i]>2LL*arr[j] )
-            j++ ;
-        inversion_count += (j - (mid+1)) ; 
-    }
+    // Commented this counting here 
+
+    // int j= mid+1 ; 
+    // for(int i=l ; i<=mid ; i++){
+    //     while( j<=r and arr[i]>2LL*arr[j] )
+    //         j++ ;
+    //     inversion_count += (j - (mid+1)) ; 
+    // }
+    
+    
 
     int left_array_size = mid-l+1 ; 
     int right_array_size = r-mid ; 
@@ -51,7 +58,9 @@ ll merge(int l , int mid , int r , vector<int>& arr){
     ll left_array[left_array_size] ; 
     ll right_array[right_array_size] ; 
 
-    int left_index , right_index , arr_index = l ;
+    int left_index =0 , right_index = 0 , arr_index = l ;
+
+
     
     for(left_index = 0 ; left_index<left_array_size ; left_index++ )
         left_array[left_index] = arr[arr_index++] ; 
@@ -60,6 +69,18 @@ ll merge(int l , int mid , int r , vector<int>& arr){
         right_array[right_index] = arr[arr_index++] ; 
 
     left_index = 0 ; right_index =0 ; arr_index = l ; 
+
+    // calculating the inversion count O(n) operation
+
+    for(left_index =0 ; left_index < left_array_size ; left_index ++ ){
+        while((right_index < right_array_size) and (left_array[left_index] > 2LL * right_array[right_index]) )
+            right_index ++ ; 
+        inversion_count += (right_index) ; 
+    }
+
+
+    // merging part    
+    left_index = 0 ; right_index =0 ; arr_index = l ;     
 
     while((left_index < left_array_size) and (right_index<right_array_size)){
         if( left_array[left_index] > right_array[right_index] ){

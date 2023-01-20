@@ -39,9 +39,11 @@ public:
     vector<int> majorityElement(vector<int>& nums) {
         int N = nums.size() ; 
         int maj1 , maj2 , count1 , count2 ; 
-        maj1 = maj2 = MAX ;
+        maj1 = maj2 = MAX ; 
         count1 = count2 = 0 ; 
         for(int num : nums ){
+			//  we should use else if only 
+                // as at a time we should either initialize maj1 or maj2
             if(num == maj1 )
                 count1++ ; 
             else if(num == maj2 )
@@ -55,11 +57,16 @@ public:
                 maj2 = num ; 
                 count2 = 1 ;
             }else{
+				// If it is minority element , just decrementing 
+                // to cancel the counts
                 count1 -- ; 
                 count2 -- ; 
             }
         }
-
+		
+		
+        // since there may or may not the majority elements
+		
         int freq1 =0 , freq2 = 0 ; 
         for(int num : nums ){
             if(num == maj1 )

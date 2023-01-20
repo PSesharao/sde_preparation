@@ -9,6 +9,21 @@ and put it in a new array in sorted order.
 
 i.e we are calculating inversion before sorting . 
 
+another point is when we are comparing one element in left sorted array with another element in right sorted array 
+
+all the indices in left array is less than right array indices i.e always ( left_index < right_index )
+
+so the condition that we need to check is ( left_array[left_index] > right_array[right_index] )
+in such a case here
+
+left_array    right_array
+[10 15 18 ]   [9 20 25]
+
+let us say left_index =0 , right_index =0 and 10 > 9 , here this implicitly mean that remaining all the elements in 
+left_array also greater than 9.
+
+so , inversion_count += left_array_size - left_index ; 
+
 */
 
 

@@ -59,6 +59,32 @@ public:
     }
 };
 
+// recursive solution 
+
+class Solution {
+
+private :
+    int countPaths(int i,int j,int n,int m){
+        if(i==(n-1)&&j==(m-1)) 
+            return 1;
+        int rightPath = 0 ;
+        int downPath  = 0 ; 
+
+        if(i+1< n )
+            rightPath = countPaths(i+1,j,n,m) ;
+        if(j+1<m )
+            downPath = countPaths(i,j+1,n,m);
+        
+         return rightPath + downPath ; 
+    }
+
+public:
+    int uniquePaths(int m, int n) {
+        return countPaths( 0, 0, m , n ) ; 
+    }
+
+};
+
 // Approach 2 dp 
 class Solution {
 public:
