@@ -10,7 +10,19 @@ Reason : O(N) – Merge operation , O(N) – counting operation
 
 The inner loop increments right_index as long as left_array[left_index] > 2LL * right_array[right_index], meaning as long as the current element from the left subarray is greater than twice the current element from the right subarray. When this condition is no longer true, it means that right_index represents the count of reverse pairs for the current element in the left subarray, which is added to the overall count.
 
+Example : 
 
+[3 , 4 , 11 ] [1 , 4, 5] 
+
+first pass 
+(3 , 1 ) 
+
+2nd pass 
+(4 , 1)
+
+3rd pass
+
+(11 ,1 ) (11 , 4) (11 , 5)
 */
 
 
