@@ -2,8 +2,8 @@
 
 https://leetcode.com/problems/sudoku-solver/
 
-Time Complexity: O(9(n ^ 2)), in the worst case, 
-for each cell in the n2 board, we have 9 possible numbers.
+Time Complexity: O(9^(n ^ 2)), in the worst case, 
+for each cell in the n^2 board, we have 9 possible numbers.
 
 Space Complexity: O(1), since we are refilling the given board itself, 
 there is no extra space required, so constant space complexity.
@@ -43,6 +43,7 @@ bool isPossibleToPlace(int k , vector<vector<int>> &sudoku
 , int row , int col  ) {
 
     k += '0' ; 
+	// This represents the top left corner of the any given box 
     int box_x_corner = 3*(row/3) ; 
     int box_y_corner = 3*(col/3) ; 
 

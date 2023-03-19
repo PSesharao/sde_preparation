@@ -29,7 +29,14 @@ void init_code()
 #endif
 }
 
+/* 
 
+	here for loop is not required as we are not doing these things 
+	
+	i) to check for the duplicates and skip them
+	ii) not trying to reduce the recursion calls by not considering the higher values and breaking the loop in between  
+	
+*/
 class Solution
 {
 
@@ -64,3 +71,37 @@ int main() {
 
     
 }
+
+
+// using a for loop
+class Solution
+{
+
+private :
+
+    void getSubSetSums( int idx , vector<int> &arr, int N , 
+        int &curr_sum , vector<int> &ans){
+
+        ans.push_back(curr_sum ) ;
+
+        for(int i= idx ; i<N ; i++ ){
+
+            curr_sum += arr[i] ; // adding element to current sum
+
+            getSubSetSums(i+1 , arr , N , curr_sum , ans ) ;
+
+            curr_sum -= arr[i] ; // remove the element from current sum 
+
+        } 
+    }
+
+public:
+    vector<int> subsetSums(vector<int> arr, int N)
+    {
+        vector<int> ans ;
+        int curr_sum = 0 ; 
+        getSubSetSums(0 , arr, N , curr_sum , ans ) ; 
+        sort(ans.begin() , ans.end()) ; 
+        return ans ; 
+    }
+};

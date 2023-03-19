@@ -79,6 +79,85 @@ class Solution{
 
 
 
+// This approach is for highlighting the pass by reference method which usually be 
+// used for other backtracking cases so far we have used.
+
+class Solution{
+
+    private : 
+    void ratInAMaze(int row , int col , vector<vector<int>> &M , int N , string &path , 
+        vector<string> &ans , vector<vector<int>> &visited  ){
+
+        if(row == N-1 and col == N-1 ){
+            ans.push_back(path) ;
+            return ;  
+        }
+
+        // down
+        if( (row+1< N )  and M[row+1][col] == 1 and !visited[row+1][col] ){
+            visited[row][col] = 1 ; 
+            path.push_back('D') ; 
+
+            ratInAMaze(row+1 , col , M , N , path , ans , visited ) ;
+
+            visited[row][col] = 0 ; 
+            path.pop_back() ; 
+
+        }
+
+        // left 
+
+        if( (col -1 >=0  )  and M[row][col-1] == 1 and !visited[row][col-1] ){
+            visited[row][col] = 1 ; 
+            path.push_back('L') ; 
+
+            ratInAMaze(row , col-1 , M , N , path , ans , visited ) ;
+
+            visited[row][col] = 0 ; 
+            path.pop_back() ; 
+
+        }
+
+        // right
+        if( (col +1 < N   )  and M[row][col+1] == 1 and !visited[row][col+1] ){
+            visited[row][col] = 1 ; 
+            path.push_back('R') ; 
+
+            ratInAMaze(row , col+1 , M , N , path , ans , visited ) ;
+
+            visited[row][col] = 0 ; 
+            path.pop_back() ; 
+
+        }
+
+        // up 
+        if( (row-1>=0 )  and M[row-1][col] == 1 and !visited[row-1][col] ){
+            visited[row][col] = 1 ; 
+            path.push_back('U') ; 
+
+            ratInAMaze(row-1 , col , M , N , path , ans , visited ) ;
+
+            visited[row][col] = 0 ; 
+            path.pop_back() ; 
+
+        }        
+
+    }
+
+
+    public:
+    vector<string> findPath(vector<vector<int>> &M , int N ) {
+
+        vector<vector<int>> visited(N , vector<int>(N , 0 )) ; 
+        vector<string> ans ; 
+        string path = "" ; 
+        if(M[0][0] == 1 ) 
+            ratInAMaze( 0 , 0  ,  M , N , path , ans , visited ) ; 
+        return ans ; 
+        
+    }
+};
+
 int main() {
     init_code() ; 
     Solution sol ; 

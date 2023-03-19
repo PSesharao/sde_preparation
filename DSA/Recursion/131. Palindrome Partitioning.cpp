@@ -54,7 +54,8 @@ void partition(int ind  , string str , vector<string> &curr_partition , vector<v
         if(isPalindrome(ind , p , str )){
             curr_partition.push_back(str.substr(ind , p-ind +1 )) ;
             partition(p+1 , str , curr_partition , ans ) ; 
-            curr_partition.pop_back() ; 
+            curr_partition.pop_back() ; // This is for considering the 
+                // other answers like "aa" , "aaa" apart from "a" alone etc .
         }
     }
 }

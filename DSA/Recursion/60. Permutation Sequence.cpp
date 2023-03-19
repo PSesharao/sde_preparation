@@ -21,6 +21,20 @@ to be placed at the first index. Once the number at the first index is decided w
 three more positions and three more numbers.  Now the problem is shorter. We can repeat 
 the technique that was used previously until all the positions are filled.
 
+Permutations will be like this 
+
+	1  {2 , 3 ,4 }  ----> 6   (0 - 5 )
+
+	2  {1 , 3 , 4 } -----> 6  (6 - 11)
+
+	3  {1 , 2 , 4 } ------> 6  (12 - 17) 
+	
+	4  {1 , 2 , 3 } -----> 6   (18 - 23) 
+	
+	We can see for given k = 17 , our permutation will fall in the range of {12 - 17 } , so our starting digit will be 3
+	
+	after picking the starting digit we can proceed with the other recursively in {1 , 2 , 4 } 
+
 
 */
 
@@ -116,3 +130,67 @@ int main() {
 
     
 }
+
+
+
+
+// Iterative approach : 
+
+class Solution {
+public:
+    string getPermutation(int n, int k) {
+        vector<int> nums(n);
+        int factorial = 1;
+        
+        // Fill the nums vector with values 1 to n
+        for (int i = 0; i < n; i++) {
+            nums[i] = i + 1;
+            factorial *= (i + 1);
+        }
+        
+        // Decrement k by 1 to make it 0-indexed
+        k--;
+        
+        string result;
+        while (n > 0) {
+            factorial /= n;
+            int index = k / factorial;
+            result += to_string(nums[index]);
+            nums.erase(nums.begin() + index);
+            k %= factorial;
+            n--;
+        }
+        
+        return result;
+    }
+};
+
+
+
+// Recursive approach : 
+
+class Solution {
+public:
+    string getPermutation(int n, int k) {
+        vector<int> nums(n);
+        for (int i = 0; i < n; i++) {
+            nums[i] = i + 1;
+        }
+        return getPermutationHelper(nums, n, k - 1);
+    }
+    
+    string getPermutationHelper(vector<int>& nums, int n, int k) {
+        if (n == 1) {
+            return to_string(nums[0]);
+        }
+        int factorial = 1;  // We will be taking (n-1) ! here . 
+        for (int i = 1; i < n; i++) {
+            factorial *= i;
+        }
+        int index = k / factorial;
+        int digit = nums[index];
+        nums.erase(nums.begin() + index);
+        k %= factorial;
+        return to_string(digit) + getPermutationHelper(nums, n - 1, k);
+    }
+};
