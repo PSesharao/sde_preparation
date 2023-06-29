@@ -1,0 +1,207 @@
+\documentclass[10pt,a4paper,ragged2e]{altacv}
+\geometry{left=2cm,right=10cm,marginparwidth=6.8cm,marginparsep=1.2cm,top=1.25cm,bottom=1.25cm}
+\ifxetexorluatex
+  \setmainfont{Carlito}
+\else
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+  \usepackage[default]{lato}
+  \usepackage{hyperref}
+  \hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+    }
+\fi
+\definecolor{VividPurple}{HTML}{000000}
+\definecolor{SlateGrey}{HTML}{2E2E2E}
+\definecolor{LightGrey}{HTML}{2E2E2E}
+\colorlet{heading}{VividPurple}
+\colorlet{accent}{VividPurple}
+\colorlet{emphasis}{SlateGrey}
+\colorlet{body}{LightGrey}
+\renewcommand{\itemmarker}{{\small\textbullet}}
+\renewcommand{\ratingmarker}{\faCircle}
+\addbibresource{sample.bib}
+
+\begin{document}
+\name{Sesharao Paritala}
+\tagline{Software Engineer}
+% Cropped to square from https://en.wikipedia.org/wiki/Marissa_Mayer#/media/File:Marissa_Mayer_May_2014_(cropped).jpg, CC-BY 2.0
+%\photo{3.3cm}{profile.jpg}
+\personalinfo{%
+  % Not all of these are required!
+  % You can add your own with \printinfo{symbol}{detail}
+  \phone{+91 9491957471}
+  \email{paritalasesharao@gmail.com}
+%   \phone{000-00-0000}
+%  \mailaddress{Address, Street, 00000 County}
+  \location{Hyderabad - India}
+%  \homepage{marissamayr.tumblr.com/}
+%  \twitter{@marissamayer}
+  \linkedin{\href{https://www.linkedin.com/in/sesharao-paritala}{Linkedin}}
+  \github{\href{https://github.com/PSesharao}{Github}}
+  \lc{\href{https://leetcode.com/seshuzoomin/}{leetcode}}
+ \gfg{\href{https://auth.geeksforgeeks.org/user/paritalasesharao/practice/}{gfg}} 
+  
+%   \orcid{orcid.org/0000-0000-0000-0000} % Obviously making this up too. If you want to use this field (and also other academicons symbols), add "academicons" option to \documentclass{altacv}
+}
+
+%% Make the header extend all the way to the right, if you want.
+\begin{fullwidth}
+\makecvheader
+\end{fullwidth}
+
+%% Depending on your tastes, you may want to make fonts of itemize environments slightly smaller
+\AtBeginEnvironment{itemize}{\small}
+
+%% Provide the file name containing the sidebar contents as an optional parameter to \cvsection.
+%% You can always just use \marginpar{...} if you do
+%% not need to align the top of the contents to any
+%% \cvsection title in the "main" bar.
+\cvsection[page1sidebar]{Experience}
+
+\cvevent {\textbf{Java Developer}}{\href{https://www.ltimindtree.com/}{LTI Mindtree}}{\textbf{April 2021 -- Present}}{ \textbf{Hyderabad, India}}
+\begin{itemize}
+\item Actively involved in changing/testing to \textbf {scale up the application} to handle 200k transactions per request 
+through \textbf {Akana gateway and fixed time-out issues}.
+\smallskip
+
+\item Worked on Unit test coverage for legacy code and implemented Junit5 test cases for major modules 
+with \textbf  {coverage of more than 80\% } and fixed critical vulnerability issues caused by \textbf  {Log4j dependency for those modules}.
+
+\smallskip
+\item Migrated the On-Prem MS SQL to the AWS by refactoring the Database module and TFS code base linked with Jenkins to GIT with commit history for Azure pipeline.
+
+\end{itemize}
+
+\divider
+
+\cvevent {\textbf{Angular Developer}}{\href{https://www.ltimindtree.com/}{LTI Mindtree}}{\textbf{Sept 2020 -- March 2021 }}{ \textbf{Bangalore, India}}
+\begin{itemize}
+\item Developed a UI component from scratch to facilitate the inquiry functionality for the initiative of modernizing the legacy mainframe application leveraging the seamless user experience.
+\smallskip
+
+\item Set up the Json server as a mock REST server for handling and providing the standalone customized responses by avoiding dependency on the actual server.
+
+\end{itemize}
+
+%\divider
+
+\cvsection{TECHNICAL SKILLS}
+\begin{itemize}
+\item \large{\textbf{Backend}}
+  \begin{itemize}
+    \item \textbf{Core Java, Java 8, Spring Boot, Junit 5, Mockito, Rest APIs, Maven, Hibernate,  Gradle } 
+\item \textbf{Docker , JSON server }
+\item \textbf{XSLT , XML }
+  \end{itemize}
+  \smallskip
+  \item \large{\textbf{Frontend}} 
+  \begin{itemize}
+  \smallskip
+   \item \textbf{HTML}, \textbf{CSS , Bootstrap } 
+   \item \textbf{Angular , Typescript }  
+  \end{itemize}
+  \smallskip
+  \item \large{\textbf{Version Control}}
+  \begin{itemize}
+  \smallskip
+    \item \textbf{Git , TFS/TFVC }
+  \end{itemize}
+   \smallskip
+  \smallskip
+  \item \large{\textbf{Other Tools}}
+  \begin{itemize}
+  \smallskip
+    \item \textbf{SOAP UI, Postman , Infogix Data360 DQ+ } 
+    \item \textbf{Splunk, Jenkins pipeline, Azure CI/ CD pipeline, WinSCP } 
+    \item \textbf {Ecllipse, Intellij, Autosys, Akana API Management Platform , Visual Studio Code }
+  \end{itemize}
+\end{itemize}
+% \paragraph{Programming Languages} 
+% \smallskip
+% \begin{itemize}
+% \item C++ 
+% \item C
+% \item Javascript
+% \end{itemize}
+% \paragraph{Frameworks \& Libraries} \; 
+% \smallskip
+% \smallskip
+% \begin{itemize}
+% \item \textbf{HTML}, \textbf{CSS}, \textbf{Javascript}
+% \item \textbf{ReactJS}, \textbf{NodeJS}, \textbf{ExpressJS}  
+% \item \textbf{MongoDB}, \textbf{Firebase}, \textbf{SanityIO} 
+% \item \textbf{Bootstrap}, \textbf{Tailwind CSS}, \textbf{Material UI} 
+% \end{itemize}
+\smallskip
+
+\cvsection{Coursework Subjects} 
+\smallskip
+\begin{itemize}
+\item \textbf{\href{https://certificate.codingninjas.com/view/868ce8f8678697ba}{Data Structures and Algorithms in C++}}
+\item \textbf{\href{https://certificate.codingninjas.com/view/674d4fcec1738298}{Operating Systems}}
+
+
+\item \textbf{\href{https://certificate.codingninjas.com/view/221aac2b1f5f3ab6}{Database Management System}}
+
+\item \textbf{\href{https://certificate.codingninjas.com/view/ed3da6d8b4adfba5}{System Design}}
+
+
+\smallskip
+\end{itemize}
+
+
+% \cvevent{Product Engineer}{Google}{23 June 1999 -- 2001}{Palo Alto, CA}
+
+% \begin{itemize}
+% \item Joined the company as employe \#20 and female employee \#1
+% \item Developed targeted advertisement in order to use user's search queries and show them related ads
+% \end{itemize}
+
+%\cvsection{A Day of My Life}
+
+% Adapted from @Jake's answer from http://tex.stackexchange.com/a/82729/226
+% \wheelchart{outer radius}{inner radius}{
+% comma-separated list of value/text width/color/detail}
+% Some ad-hoc tweaking to adjust the labels so that they don't overlap
+% \wheelchart{1.5cm}{0.5cm}{%
+%   10/10em/accent!30/Sleeping \& dreaming about work,
+%   25/9em/accent!60/Public resolving issues with Yahoo!\ investors,
+%   5/13em/accent!10/\footnotesize\\[1ex]New York \& San Francisco Ballet Jawbone board member,
+%   20/15em/accent!40/Spending time with family,
+%   5/8em/accent!20/\footnotesize Business development for Yahoo!\ after the Verizon acquisition,
+%   30/9em/accent/Showing Yahoo!\ employees that their work has meaning,
+%   5/8em/accent!20/Baking cupcakes
+% }
+
+\clearpage
+
+% \cvsection[page2sidebar]{Publications}
+
+\nocite{*}
+
+% \printbibliography[heading=pubtype,title={\printinfo{\faBook}{Books}},type=book]
+
+% \divider
+
+% \printbibliography[heading=pubtype,title={\printinfo{\faFileTextO}{Journal Articles}}, type=article]
+
+% \divider
+
+% \printbibliography[heading=pubtype,title={\printinfo{\faGroup}{Conference Proceedings}},type=inproceedings]
+
+% %% If the NEXT page doesn't start with a \cvsection but you'd
+% %% still like to add a sidebar, then use this command on THIS
+% %% page to add it. The optional argument lets you pull up the
+% %% sidebar a bit so that it looks aligned with the top of the
+% %% main column.
+% % \addnextpagesidebar[-1ex]{page3sidebar}
+
+
+\end{document}
+

@@ -1,0 +1,75 @@
+First 
+
+Login / Sign Up Page
+
+Options
+-> Add Category 
+-> Add Product 
+-> Shop Now
+-> My Orders
+
+Roles 
+->ADMIN
+->User
+->Guest
+
+Admin previlages : All .
+
+User/ Guest : Can only shop / check his previous order history .
+
+For adding product/category used the ajax calls , page won't get refreshed / reloaded 
+and hence entered data won't lost .
+
+entities
+----------
+Category 
+Customer 
+Product
+Order 
+
+Customer : 
+	private String name;
+	private String gender;
+	private String address;
+	// Element Collection 
+	private List<String> hobbyList;
+	private MultipartFile imageFile;
+	// Element Collection 
+	private List<String> roles;
+	private String email;
+	private String password;
+	
+Category :
+	private String name;
+	
+Product :
+
+	private String name;
+	private String catageory;
+	private double price;
+	private MultipartFile imageFile;
+
+Order : 
+	private long customerId;
+	
+	private Set<Long> cartListIds;
+	
+	private String orderDate;
+	
+	private double ordercost;
+	
+Associations
+-------------
+
+Customer -> Order 
+
+Category -> Product 
+
+Order <-> Product 
+
+
+Used Spring Security
+
+Role based authentication
+
+custom login page 

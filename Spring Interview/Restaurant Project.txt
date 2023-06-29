@@ -1,0 +1,44 @@
+
+
+OrderMangementService
+
+	Customer 
+		id
+		name
+		mobileNumber
+		email
+	Order
+		id 
+		OrderStatus {Enum type}
+	OrderedRestaurant 
+		restaurant id {as it's id here}
+		List<OrderedFood> orderedFood; //It's embeddable has {itemId , quantityOrdered } 
+	
+Customer -> Order 
+Order -> OrderedRestaurant 
+
+
+
+RestaurantSearchService
+
+	Restaurant
+		id 
+		name 
+		location 
+		distance
+		cuisine
+		budget
+	
+	Item 
+		id
+		name
+		costOfServing
+		
+	RestaurantItemQuantity
+		RestaurantItemKey {Embedded Id -> restaurantId , itemId}
+		quantity
+		
+		
+Restaurant -> RestaurantItemQuantity 
+Item -> RestaurantItemQuantity
+

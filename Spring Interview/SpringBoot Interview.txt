@@ -1,0 +1,398 @@
+IOC Container
+--------------
+The Spring container is at the core of the Spring Framework. 
+The container will create the objects, wire them together, configure them, and manage their complete life cycle 
+from creation till destruction. The Spring container uses DI to manage the components that make up an application. 
+These objects are called Spring Beans.
+
+Spring IoC is the mechanism to achieve loose-coupling between Objects dependencies. 
+To achieve loose coupling and dynamic binding of the objects at runtime, objects dependencies 
+are injected by other assembler objects. Spring IoC container is the program that injects dependencies 
+into an object and make it ready for our use. 
+
+Dependency Injection 
+---------------------
+Dependency injection is a pattern we can use to implement IoC,
+
+Connecting objects with other objects, or “injecting” objects into other objects, is done by an assembler rather than 
+by the objects themselves.
+
+Here's how we would create an object dependency in traditional programming:
+
+public class Store {
+    private Item item;
+ 
+    public Store() {
+        item = new ItemImpl1();    
+    }
+}
+In the example above, we need to instantiate an implementation of the Item interface within the Store class itself.
+
+
+By using DI, we can rewrite the example without specifying the implementation of the Item that we want:
+
+public class Store {
+    private Item item;
+    public Store(Item item) {
+        this.item = item;
+    }
+}
+
+i) Constructor-based dependency injection
+ii)	Setter-based dependency injection
+
+Bean
+------
+The objects that form the backbone of your application and that are managed by the Spring IoC container are called beans. 
+A bean is an object that is instantiated, assembled, and otherwise managed by a Spring IoC container. 
+
+	Bean Scope : 
+When defining a <bean> you have the option of declaring a scope for that bean. 
+For example, to force Spring to produce a new bean instance each time one is needed, you should declare 
+the bean's scope attribute to be prototype. Similarly, if you want Spring to return the same bean instance 
+each time one is needed, you should declare the bean's scope attribute to be singleton.
+
+
+
+Features of Spring Boot
+-----------------------
+
+Creates stand-alone spring application with minimal configuration needed.
+It has embedded tomcat, jetty which makes it just code and run the application.
+Absolutely no requirement for XML configuration , only a few annotations are 
+required to do the configuration.
+
+
+Why Spring Boot over Spring?
+Below are some key points which spring boot offers but spring doesn’t:
+Starter POM.
+Version Management.
+Auto Configuration.
+Component Scanning.
+Embedded server.
+InMemory DB.
+
+
+What does the @SpringBootApplication annotation do internally?
+ 
+The entry point of the spring boot application is the class that contains 
+@SpringBootApplication annotation and the main method.
+
+The @SpringBootApplication annotation is equivalent to using @Configuration, 
+@EnableAutoConfiguration, and @ComponentScan.
+ 
+
+What is the purpose of using @ComponentScan in the class files?
+Spring Boot application scans all the beans and package declarations when the application initializes. 
+You need to add the @ComponentScan annotation for your class file to scan your components added to your project.
+
+What are starter dependencies?
+Spring boot starter is a maven template that contains a collection of all the relevant transitive 
+dependencies that are needed to start a particular functionality.
+
+Spring Initializer?
+a web application that helps you to create an initial spring boot project structure and 
+provides a maven or gradle file to build your code.
+
+What is Spring Boot dependency management?
+Spring Boot dependency management is used to manage dependencies and configuration automatically 
+without you specifying the version for any of that dependencies.
+
+How to disable a specific auto-configuration class?
+You can use exclude attribute of @EnableAutoConfiguration if you want auto-configuration not to apply to any specific class.
+
+Explain @RestController annotation in Sprint boot?
+It is a combination of @Controller and @ResponseBody, used for creating a restful controller. 
+It converts the response to JSON or XML. It ensures that data returned by each method will be 
+written straight into the response body instead of returning a template.
+
+What is the difference between @RestController and @Controller in Spring Boot?
+@Controller Map of the model object to view or template and make it human readable but @RestController 
+simply returns the object and object data is directly written in HTTP response as JSON or XML.
+
+Difference between RequestMapping and GetMapping?
+RequestMapping can be used with GET, POST, PUT, and many other request methods using the method attribute on the annotation. 
+Whereas getMapping is only an extension of RequestMapping which helps you to improve on clarity on request.
+
+What is the use of Profiles in spring boot?
+While developing the application we deal with multiple environments such as dev, QA, 
+Prod, and each environment requires a different configuration. 
+
+What is Spring Actuator? What are its advantages?
+An actuator is an additional feature of Spring that helps you to monitor and manage your application 
+when you push it to production. These actuators include auditing, health, CPU usage, HTTP hits.
+
+What is Spring AOP?
+Spring AOP enables Aspect-Oriented Programming in spring applications. In AOP, aspects enable the 
+modularization of concerns such as transaction management, logging or security that cut across multiple types 
+and objects (often termed crosscutting concerns).
+
+@Embeddable and @EmbeddedId
+---------------------------
+
+
+We represent a composite primary key in Spring Data by using the @Embeddable annotation on a class. 
+This key is then embedded in the table's corresponding entity class as the composite primary key by 
+using the @EmbeddedId annotation on a field of the @Embeddable type.
+
+
+Many-to-Many Using a Composite Key
+
+Let's say we want to let students rate the courses. A student can rate any number of courses, and any number of students can rate the same course. 
+Therefore, it's also a many-to-many relationship.
+What makes this example a bit more complicated is that there is more to the rating relationship than the fact that it exists. 
+We need to store the rating score the student gave on the course.
+Where can we store this information? We can't put it in the Student entity since a student can give different ratings to 
+different courses. Similarly, storing it in the Course entity wouldn't be a good solution either.
+
+
+every JPA entity needs a primary key. Because our primary key is a composite key, 
+we have to create a new class that will hold the different parts of the key:
+
+@Embeddable
+class CourseRatingKey implements Serializable {
+
+    @Column(name = "student_id")
+    Long studentId;
+
+    @Column(name = "course_id")
+    Long courseId;
+
+    // standard constructors, getters, and setters
+    // hashcode and equals implementation
+}
+
+
+
+Note that a composite key class has to fulfill some key requirements:
+
+We have to mark it with @Embeddable.
+It has to implement java.io.Serializable.
+We need to provide an implementation of the hashcode() and equals() methods.
+None of the fields can be an entity themselves.
+
+
+
+Using a Composite Key in JPA
+Using this composite key class, we can create the entity class, which models the join table:
+
+@Entity
+class CourseRating {
+
+    @EmbeddedId
+    CourseRatingKey id;
+
+    @ManyToOne
+    @MapsId("studentId")
+    @JoinColumn(name = "student_id")
+    Student student;
+
+    @ManyToOne
+    @MapsId("courseId")
+    @JoinColumn(name = "course_id")
+    Course course;
+
+    int rating;
+    
+    // standard constructors, getters, and setters
+}
+
+
+
+
+We used @EmbeddedId to mark the primary key, which is an instance of the CourseRatingKey class.
+We marked the student and course fields with @MapsId.
+@MapsId means that we tie those fields to a part of the key, and they're the foreign keys of a many-to-one relationship. 
+We need it because, as we mentioned, we can't have entities in the composite key.
+
+
+
+class Student {
+
+    // ...
+
+    @OneToMany(mappedBy = "student")
+    Set<CourseRating> ratings;
+
+    // ...
+}
+
+class Course {
+
+    // ...
+
+    @OneToMany(mappedBy = "course")
+    Set<CourseRating> ratings;
+
+    // ...
+}
+
+
+Many-to-Many With a New Entity
+
+Modeling Relationship Attributes
+
+Let's say we want to let students register for courses. Also, we need to store the point 
+when a student registered for a specific course. On top of that, we want to store what grade she received in the course.
+In an ideal world, we could solve this with the previous solution, where we had an entity with a composite key. 
+However, the world is far from ideal, and students don't always accomplish a course on the first try.
+In this case, there are multiple connections between the same student-course pairs, or multiple rows, with the same 
+student_id-course_id pairs. We can't model it using any of the previous solutions because all primary keys must be unique. 
+So, we need to use a separate primary key.
+Therefore, we can introduce an entity, which will hold the attributes of the registration:
+
+In this case, the Registration entity represents the relationship between the other two entities.
+Since it's an entity, it'll have its own primary key.
+
+@Entity
+class CourseRegistration {
+
+    @Id
+    Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "student_id")
+    Student student;
+
+    @ManyToOne
+    @JoinColumn(name = "course_id")
+    Course course;
+
+    LocalDateTime registeredAt;
+
+    int grade;
+    
+    // additional properties
+    // standard constructors, getters, and setters
+}
+
+
+
+class Student {
+
+    // ...
+
+    @OneToMany(mappedBy = "student")
+    Set<CourseRegistration> registrations;
+
+    // ...
+}
+
+class Course {
+
+    // ...
+
+    @OneToMany(mappedBy = "courses")
+    Set<CourseRegistration> registrations;
+
+    // ...
+}
+
+
+
+
+
+Spring MicroServices
+-------------------------
+Main features of Microservices
+Decoupling
+Componentization
+Business Capabilities
+Team autonomy
+Continuous Delivery
+Responsibility
+Decentralized Governance
+Agility
+
+
+Monolithic Architecture: It is "like a big container" where all the software components of an application are 
+bundled together tightly.  It is usually built as one large system and is one code-base. 
+
+SOA (Service-Oriented Architecture): It is a group of services interacting or communicating with each other. 
+Depending on the nature of the communication, it can be simple data exchange or it could involve several services 
+coordinating some activity.   
+
+Microservice Architecture: It involves structuring an application in the form of a cluster of small, autonomous services 
+modeled around a business domain. The functional modules can be deployed independently, are scalable, are aimed at 
+achieving specific business goals, and communicate with each other over standard protocols. 
+
+
+Circuit Breaker
+----------------
+It's a fault tolerant approach .
+The failure of one service can potentially cascade to other services throughout the application.
+
+The basic idea behind the circuit breaker is very simple. You wrap a protected function call in a circuit breaker object, 
+which monitors for failures. 
+Once the failures reach a certain threshold, the circuit breaker trips, and all further calls to the circuit breaker 
+return with an error or with some alternative service or default message, without the protected call being made at all. 
+This will make sure system is responsive and threads are not waiting for an unresponsive call.
+
+
+Kafka 
+---------
+
+Terminology :
+
+	Producer 
+	An appliaction that sends data/message to kafka .
+	
+	
+	Consumer 
+	Application that recieves data/message .
+	It requests the data from the kafka server .They should have permission to read it .
+	
+	Broker 
+	It's nothing but kafka server .
+	It the agent between producer and consumer to exchange messages .
+	
+	Cluster
+	Kafka is distributed system (group of computers acting for same purpose .)
+	It's group of computers each executing one instance of kafka broker .
+	
+	Topic 
+	Topic is a unique name for message/data stream.
+	Producer publish to a particular topic , and a Consumer subscribe to that topic .
+
+	Partition
+	Broker would store data for a topic , this data can be huge , it can be larger than the 
+	storage capacity of a single computer , in such case broker may have a challenge in storing 
+	that data , one of solutions is to break it two or more parts and distribute it to different
+	computers , Kafka is a distributed system that runs on a system of computers , so kafka can 
+	break a topic into partitions and store one partition in one computer , 
+	
+	Offset
+	This is the sequence number of a message in a partition , kafka stores these message in order.
+	
+	To locate a message , we should know three things 
+	
+	Topic Name -> Partition Number -> Offset 
+	
+	Consumer group 
+	Group of consumers acting as a single unit .
+	
+	ZooKeeper
+	Kafka uses ZooKeeper to manage the cluster. ZooKeeper is used to coordinate the brokers/cluster topology. 
+	ZooKeeper is a consistent file system for configuration information. 
+	
+To start the zookeeper
+
+
+
+bin\windows\zookeeper-server-start.bat config\zookeeper.properties
+
+bin\windows\kafka-server-start.bat config\server.properties
+
+bin\windows\kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic TestTopic
+
+bin\windows\kafka-topics.bat --list --zookeeper localhost:2181
+
+bin\windows\kafka-console-producer.bat --broker-list localhost:9092 --topic TestTopic
+
+bin\windows\kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic TestTopic --from-beginning
+
+
+
+Ajax
+-----------
+Ajax is a set of web development techniques that uses various web technologies on the client-side to create asynchronous web applications. With Ajax, web applications can send and retrieve data from a server asynchronously without interfering with the display and behaviour of the existing page.

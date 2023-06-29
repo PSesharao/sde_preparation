@@ -1,0 +1,77 @@
+CREATE TABLE Supplier
+(
+	Sno	INT,
+	Sname	VARCHAR(30),
+	City	VARCHAR(30),
+	Status	VARCHAR(10)
+);
+
+CREATE TABLE Product
+(
+	Pno	INT,
+	Pname	VARCHAR(30),
+	Colour	VARCHAR(30),
+	Weight	INT
+);
+
+CREATE TABLE SP
+(
+	Sno	INT,
+	Pno	INT,
+	Qty	INT
+);
+
+INSERT INTO Supplier (Sno, Sname, City, Status)
+VALUES (1,'rachit', 'jalandhar','active' ),
+	 (2,'sahil', 'amritsar','active' ),
+	 (3,'anjali', 'bareilly','active' ),
+	 (4,'priyanka', 'delhi','active' ),
+	 (5,'krishna', 'jaipur','active' ),
+	 (6,'kashish', 'chandigarh','active' );
+
+INSERT INTO Product (Pno, Pname, Colour, Weight)
+VALUES (1,'pen', 'red','5' ),
+	 (2,'pencil', 'rlue','10' ),
+	 (3,'sharpner', 'red','3' ),
+	 (4,'eraser', 'white','6' ),
+	 (5,'stapler', 'green','40' ),
+	 (6,'whitener', 'white','15' );
+
+INSERT INTO SP (Sno,Pno,Qty)
+VALUES (1,6,10 ),
+	 (2,4,8 ),
+	 (3,3,15 ),
+	 (4,5,6 ),
+	 (5,1,11 ),
+	 (6,2,20);
+
+select Qty from SP where Sno in (
+select Sno from Supplier where Sname in ("anjali" , "rachit" )
+) ; 
+
+select Sname , City from Supplier where Sno in (
+select Sno from SP where Pno in (1 , 5 ) 
+); 
+
+select Colour from Product where Pno in (
+select Pno from SP where Sno in (1 , 3 , 6  ) 
+) ; 
+
+select Colour from Product where Pno in (
+select Pno from SP where Sno in ( 
+select Sno from Supplier where Sname not in ('rachit' , 'kashish' ) 
+)
+) ; 
+
+select Sname from Supplier where Sno in (
+select Sno from SP where Pno in (
+select Pno from Product where Pname = 'pencil' and Pno in (
+select Pno from SP where Qty > 10
+)
+)
+)   
+ or 
+SELECT Sname FROM Supplier WHERE Sno = (SELECT Sno FROM SP WHERE Qty > 10 and Pno=(SELECT Pno FROM Product WHERE Pname='pencil')); 
+
+SELECT Pname, Colour, p.w FROM (SELECT Pname, Colour, Weight*20 as w FROM Product Where Weight <= 10) as p WHERE p.Colour = 'red';
+

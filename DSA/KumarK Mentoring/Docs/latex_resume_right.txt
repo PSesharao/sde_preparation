@@ -1,0 +1,47 @@
+\cvsection{Education}
+\cvevent{B.Tech (CSE) - 8.57 CGPA}{Pace Institute of Technology and Sciences}{ 2016 -- 2020 }{Ongole, Andhra Pradesh}{}
+
+\cvevent{Intermediate (MPC) - 98.3\%}{Sri Chaitanya Junior College}{ 2014 –- 2016 }{Ongole, Andhra Pradesh}{}
+
+\cvevent{SSC - 9.5 CGPA }{Z.P.H.S Pondur }{ 2013 }{Pondur , Andhra Pradesh }{}
+
+
+% \cvachievement{\faTrophy}{}{Received accolades at Atos for Best Performance in team.}
+% \cvachievement{\faTrophy}{}{Received Best Debut Award at Atos. }
+% %\divider
+% \cvachievement{\faInstitution}{}{Won 2nd Consolation Prize for paper presented on Cognitive Radio Networks.}
+% %\divider
+% \cvachievement{\faGraduationCap}{}{Got Selected in "Exclusive Scholar Program" during undergrad.}
+% %\divider
+% \cvachievement{\faDollar}{}{Awarded with Narotam Sekhsaria Foundation Scholarship}
+%\cvsection{Strengths}
+
+%\cvtag{Hard-working (18/24)} 
+%\cvtag{Persuasive}
+%\cvtag{Motivator \& Leader}
+
+%\divider\smallskip
+
+%\cvtag{UX}
+%\cvtag{Mobile Devices \& Applications}
+%\cvtag{Product Management \& Marketing}
+
+
+%\divider
+
+%\cvevent{B.S.\ in Symbolic Systems}{Stanford University}{Sept 1993 -- June 1997}{}
+
+\cvsection{Projects}
+\cvproject {\href{https://github.com/PSesharao/AngularSpringProject}{SuperMarket Application}}
+\begin{itemize}
+\item \textbf{Spring MVC | Spring Security | Maven | JSP | HTML | MDBootstrap | Javascript | Jquery | Ajax | My SQL Workbench } 
+\item Developed the online supermarket shopping experience web pages with the Spring MVC framework. \
+\href{https://github.com/PSesharao/AngularSpringProject}{Github}
+
+\end{itemize}
+
+\smallskip
+\cvproject{}
+ 
+
+

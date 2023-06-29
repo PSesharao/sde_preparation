@@ -1,0 +1,242 @@
+Class 
+------
+It is a logical entity.
+
+A class can also be defined as a blueprint from which you can create an individual object. 
+Class doesn't consume any space.
+
+Object
+------
+An Object can be defined as an instance of a class. 
+An object contains an address and takes up some space in memory. 
+has state and behavior 
+
+
+Inheritance
+------------ 
+When one object acquires all the properties and behaviors of a parent object.
+
+
+class Subclass-name extends Superclass-name  
+{  
+   
+}
+
+
+Polymorphism
+-------------
+
+Polymorphism in Java is the ability of an object to take many forms. 
+To simply put, polymorphism in java allows us to perform the same action in many different ways.
+
+In Java, we use method overloading and method overriding to achieve polymorphism.
+
+
+Abstraction
+------------
+Hiding internal details and showing functionality is known as abstraction.
+
+There are two ways to achieve abstraction in java
+
+1 . Abstract class (0 to 100%)
+2 . Interface (100%)
+
+	abstract class Shape{  
+	abstract void draw();  
+	}  
+	//In real scenario, implementation is provided by others i.e. unknown by end user  
+	class Rectangle extends Shape{  
+	void draw(){System.out.println("drawing rectangle");}  
+	}  
+	class Circle1 extends Shape{  
+	void draw(){System.out.println("drawing circle");}  
+	} 
+
+	interface A{  
+	void a();  
+	void b();  
+	void c();  
+	void d();  
+	}  
+	
+	
+Encapsulation
+--------------
+
+It is a protective shield that prevents the data from being accessed by the code outside this shield. 
+ 
+
+Technically in encapsulation, the variables or data of a class is hidden from any other class and can be 
+accessed only through any member function of its own class in which it is declared.
+
+Achieved through private key word , getters and setters .
+
+
+
+"this" keyword
+----------------
+In Java, this is a reference variable that refers to the current object.
+
+1 . this can be used to refer current class instance variable.
+2 .this can be used to invoke current class method (implicitly)
+3 .this() can be used to invoke current class constructor.
+4 .this can be used to return the current class instance from the method.
+
+
+
+
+"static" keyword
+------------------
+the keyword static indicates that the particular member belongs to a type itself, rather than to an instance of that type.
+
+The static can be:
+
+Variable (also known as a class variable)
+Method (also known as a class method)
+Block
+Nested class
+
+
+"final" keyword 
+----------------
+The final keyword in java is used to restrict the user.
+
+If we initialize a variable with the final keyword, then we cannot modify its value.
+
+If we declare a method as final, then it cannot be overridden by any subclasses. And, 
+if we declare a class as final, we restrict the other classes to inherit or extend it.
+
+In other words, the final classes can not be inherited by other classes.
+
+
+---------------------------------------------------------------------------------------------------------
+
+
+
+List interface 
+--------------
+The List interface provides a way to store the ordered collection. 
+It is a child interface of Collection. It is an ordered collection of objects in which duplicate values can be stored.
+
+
+ArrayList
+ArrayList class which is implemented in the collection framework provides us dynamic arrays in Java. 
+
+Vector
+Stack
+
+LinkedList
+LinkedList is a class that is implemented in the collection framework which inherently implements the 
+linked list data structure. 
+It is a linear data structure where the elements are not stored in contiguous locations and every element 
+is a separate object with a data part and address part. The elements are linked using pointers and addresses. 
+Each element is known as a node. Due to the dynamicity and ease of insertions and deletions, 
+they are preferred over the arrays.
+
+
+Set Interface 
+--------------
+
+The set interface is present in java.util package and extends the Collection interface is an unordered collection 
+of objects in which duplicate values cannot be stored. It is an interface that implements the mathematical set. 
+
+HashSet
+The objects that we insert into the HashSet do not guarantee to be inserted in the same order. 
+The objects are inserted based on their hashcode. 
+
+EnumSet
+
+LinkedHashSet
+LinkedHashSet class which is implemented in the collections framework is an ordered version of HashSet 
+that maintains a doubly-linked List across all elements. When the iteration order is needed to be maintained 
+this class is used. When iterating through a HashSet the order is unpredictable, while a LinkedHashSet lets 
+us iterate through the elements in the order in which they were inserted. 
+
+TreeSet
+It behaves like a simple set with the exception that it stores elements in a sorted format. 
+TreeSet uses a tree data structure for storage. Objects are stored in sorted, ascending order.
+
+HashCode() and equals()
+
+If two Objects are equal, according to the equals(Object) method, then hashCode() method must produce the same Integer 
+on each of the two Objects.
+
+If two Objects are unequal, according to the equals(Object) method, It is not necessary the Integer value produced by 
+hashCode() method on each of the two Objects will be distinct. 
+
+Comparable
+-----------
+Comparable is meant for objects with natural ordering which means the object itself must know how it is to be ordered.  
+
+Logically, Comparable interface compares “this” reference with the object specified and 
+
+If any class implements Comparable interface in Java then collection of that object either List or Array can be 
+sorted automatically by using Collections.sort() or Arrays.sort() 
+method and objects will be sorted based on their natural order defined by CompareTo method.
+
+using comparable we can use only one comparison. 
+
+
+Comparator
+-----------
+Whereas, Comparator interface sorting is done through a separate class.
+
+Comparator in Java compares two different class objects provided.
+
+Whereas, we can write more than one custom comparators as you want for a given type, 
+all using different interpretations of what sorting means. Like in the comparable example 
+we could just sort by only one attribute, i.e., year but in the comparator, we were able 
+to use different attributes like rating, name, and year as well.
+
+
+
+Java8 
+------
+
+list.
+	stream().
+	filter(filEl -> filEl.endsWith("h")).
+	map(mapEl -> mapEl.toUpperCase()).
+	forEach(ele -> System.out.println(ele));
+	
+	
+personList = personList.stream().map(person ->{
+	person.setSalary(person.getSalary()+5000);
+	return person;
+}).collect(Collectors.toList());
+
+
+
+ORM 
+-----
+
+Object Relational Mapping (ORM) is a functionality which is used to develop and maintain a relationship between an 
+object and relational database by mapping an object state to database column. It is capable to handle various 
+database operations easily such as inserting, updating, deleting etc.
+
+Hibernate is ORM framework .
+
+
+
+Maven 
+------
+Apache Maven is a software project management and comprehension tool. Based on the concept of a project object model (POM).
+
+validate - validate the project is correct and all necessary information is available
+
+compile - compile the source code of the project
+
+test - test the compiled source code using a suitable unit testing framework. These tests should not require 
+the code be packaged or deployed
+
+package - take the compiled code and package it in its distributable format, such as a JAR.
+
+verify - run any checks on results of integration tests to ensure quality criteria are met
+
+install - install the package into the local repository, for use as a dependency in other projects locally
+
+deploy - done in the build environment, copies the final package to the remote repository for sharing with 
+other developers and projects.
+
+
+

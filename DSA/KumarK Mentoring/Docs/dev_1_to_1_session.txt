@@ -1,0 +1,128 @@
+My Experience
+=======================================
+
+6 Months   ---->   Angular/Ionic Developer
+2 Years    ---->   Java Developer ( Spring Boot , Microservices ,  Mongo DB , MS SQL ) 
+
+
+
+Topic / Type of Session : Project Guidance and System Design Guidance
+Time  : 11 AM Saturday June 3rd 2023 
+Mentor Type : Product Based Companies
+My LinkedIn Profile : https://www.linkedin.com/in/sesharao-paritala/
+
+
+My Expectations from Mentor for the Session : 
+
+I am a Full-stack Java developer with 2 years experience in backend (Spring Boot + Microservices +  Mongo DB) , and 6 months experience
+in Angular/Ionic . 
+
+#1) Could you please suggest relevant projects show-casing my full-stack skills ( Angular + Spring Boot ) with recommended video tutorials.
+
+#2) I wanted to deploy / host it freely and provide the live link of the project my resume , please provide good resources for same.
+
+#3) Please guide me with good project ideas which will stand out in my resume (backend / microservices) with recommended video tutorials.
+
+#4) What type of cross questions are expected during interview and how to be prepared to answer them efficiently.
+
+
+
+
+To do list 
+======================================
+To do a good full stack project show-casing my full-stack 
+skills ( Angular + Spring Boot )
+
+Deploy it freely and provide the live link in the Resume
+
+LLD important patterns and questions
+
+HLD important patterns and questions
+
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+		My Dev Guided Path with Didi
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+Sesharao 
+In frontend doc  
+Html 
+Css 
+Javascript
+Project 
+Moving car 
+Snake game
+Cheetsheet template  
+Scroll down 
+React tutorial 
+Project 1,2,3 of react 
+Java doc 
+Spring boot tutorial 1
+Spring batch tutorial
+Hibernate tutorial
+Redis in spring boot 
+Project 
+1 rest API
+2 20 project make any 3 
+3 CSV to db using spring batch
+LLD DOC
+
+Netlify
+
+
+
+
+
+
+
+
+
+
+
+
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+					Project Guidance with Tanish Shah
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+Idea1 : Cryto Hunter https://crypto-hunter.netlify.app/
+
+
+Angular App Deployment : Netlify, Vercel, Github Pages
+
+Angular deployment
+https://vercel.com/guides/deploying-angular-with-vercel
+
+
+Backend Deployment : Render
+
+https://github.com/TakiRahal/spring-boot-render
+
+https://dev.to/merkasin/learning-to-deploy-spring-boot-web-application-to-on-renderfree-tier-478m
+
+Idea2 : Task Completion System
+
+CRUD , Signup/ Login (Roles) (Admin, Moderator, Users)
+Archiving Deleted Posts upto days 
+Have a check for date completeing
+
+Examples : JIRA / ASANA clone.
+
+Cross questions 
+
+1. Why did you made this project ?
+
+2. Scope of Improvements
+
+3. Bugs/ issues you face while development -> How you solve that particular issue
+
+4. Discuss the security measures you implemented, such as user authentication, 
+input validation, and secure communication protocols. Mention any additional 
+security frameworks or libraries you utilized, and emphasize the importance of following security best practices.
+
+5. Library upgrades ( continuous development , regression testing )
+
+Low level design : https://github.com/prasadgujar/low-level-design-primer
+
+High Level design : https://workat.tech/system-design/tutorial/system-design-introduction-beginners-nwcf84or6mtu
