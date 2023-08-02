@@ -5,88 +5,27 @@ import java.util.List;
 
 public class ObserverDesignPattern {
 
-    interface StocksObservable{
-        void add(NotificationAlertObserver notificationAlertObserver) ;
+    public static void main(String[] args) {
 
-        void remove(NotificationAlertObserver notificationAlertObserver) ;
+        StocksObservable iphoneStocksObservable = new IphoneObservableImpl() ;
 
-        void notifyAllSubscribers() ;
+        NotificationAlertObserver observer1 = new EmailAlertObserverImpl("Sesh" , "pari@gmail.com" , iphoneStocksObservable ) ;
 
-        void updateStockCount(int stock) ;
+        NotificationAlertObserver observer2 = new EmailAlertObserverImpl("Sesh" , "sesh@gmail.com" , iphoneStocksObservable ) ;
 
-        int getStockCount() ;
+        NotificationAlertObserver observer3 = new MobileAlertObserverimpl("Sesh" , "1234567890" , iphoneStocksObservable ) ;
+
+        iphoneStocksObservable.add(observer1);
+        iphoneStocksObservable.add(observer2);
+        iphoneStocksObservable.add(observer3);
+
+        iphoneStocksObservable.updateStockCount(10);
+
+        iphoneStocksObservable.updateStockCount(-10);
+
+        iphoneStocksObservable.updateStockCount(1);
+
+        iphoneStocksObservable.updateStockCount(-10);
+
     }
-
-    class IphoneObservableImpl implements StocksObservable{
-
-        List<NotificationAlertObserver> observerList = new ArrayList<>();
-        int stockCount = 0 ;
-
-        @Override
-        public void add(NotificationAlertObserver notificationAlertObserver) {
-            observerList.add(notificationAlertObserver) ;
-        }
-
-        @Override
-        public void remove(NotificationAlertObserver notificationAlertObserver) {
-            observerList.remove(notificationAlertObserver) ;
-        }
-
-        @Override
-        public void notifyAllSubscribers() {
-            for(NotificationAlertObserver observer : observerList ){
-                observer.update();
-            }
-        }
-
-        @Override
-        public void updateStockCount(int newStock) {
-
-            if(stockCount + newStock >=0 ) {
-                stockCount += newStock;
-                notifyAllSubscribers();
-            }
-        }
-
-        @Override
-        public int getStockCount() {
-            return stockCount ;
-        }
-    }
-
-
-    interface NotificationAlertObserver{
-        void update() ;
-    }
-
-    class EmailAlertObserverImpl implements NotificationAlertObserver{
-
-        String emailId ;
-        StocksObservable observable ;
-
-        EmailAlertObserverImpl(String emailId  , StocksObservable observable ){
-            this.emailId = emailId ;
-            this.observable = observable ;
-        }
-
-        @Override
-        public void update() {
-            sendEmail(emailId , "HurryUp ! Product is available now in the stock with quantity : " +
-                    observable.getStockCount() );
-        }
-
-        private void sendEmail(String emailId , String message ){
-
-        }
-    }
-
-    class MobileAlertObserverimpl implements NotificationAlertObserver{
-
-        @Override
-        public void update() {
-
-        }
-    }
-
-
 }
