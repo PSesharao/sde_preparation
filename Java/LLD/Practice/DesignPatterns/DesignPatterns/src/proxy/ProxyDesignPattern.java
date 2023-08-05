@@ -8,7 +8,7 @@ public class ProxyDesignPattern {
         try {
             employeeService.create("ADMIN");
             employeeService.delete("ADMIN");
-            System.out.println(employeeService.get("USER"));
+            System.out.println(employeeService.get("USER1"));
             employeeService.create("USER");
         } catch (Exception e) {
             System.out.println(e.getMessage());
