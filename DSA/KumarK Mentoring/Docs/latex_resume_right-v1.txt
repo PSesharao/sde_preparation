@@ -32,16 +32,52 @@
 %\cvevent{B.S.\ in Symbolic Systems}{Stanford University}{Sept 1993 -- June 1997}{}
 
 \cvsection{Projects}
-\cvproject {\href{https://github.com/PSesharao/AngularSpringProject}{SuperMarket Application}}
+
+\cvproject {\href{ https://github.com/PSesharao/stockxpress}{StockXpress - Microservices Project}}
 \begin{itemize}
-\item \textbf{Spring MVC | Spring Security | Maven | JSP | HTML | MDBootstrap | Javascript | Jquery | Ajax | My SQL Workbench } 
-\item Developed the online supermarket shopping experience web pages with the Spring MVC framework. \
-\href{https://github.com/PSesharao/AngularSpringProject}{Github}
+
+\item \textbf{TECH STACK : Spring Cloud Gateway | Netflix Eureka | Kafka Event-Driven Architecture | Keycloak IAM OAuth 2.0 JWT  | Circuit Breaker | Zipkin Distributed tracing |  Docker | Mongo DB } 
+
+\smallskip
+
+\textbf{TOOLS : Intellij | Git | Postman  }
+
+\item A microservices-based platform designed to manage products, orders, and notifications efficiently. It uses Spring Boot and various technologies to provide a \textbf{scalable and reliable} system.
+\href{https://github.com/PSesharao/stockxpress}{Github}
 
 \end{itemize}
 
+\divider
+
+\cvproject {\href{https://github.com/PSesharao/URL-Shortener}{URL Shortener App - SpringBoot \& Angular}}
+\begin{itemize}
+
+\item \textbf{TECH STACK : Spring Boot | Spring Redis Data Cache | Angular | My SQL server } 
 \smallskip
+\textbf{TOOLS : Intellij | Git | Postman | Visual Studio Code}
+
+\item Powerful app for converting long URLs into \textbf{short, easily shareable links}. It leverages the Spring Boot framework on the backend and Angular on the frontend to provide a seamless user experience.
+
+\item Employed \textbf{Spring Redis Data} for efficient \textbf{caching} of URL results. This cache reduces the load on the My SQL server, where the short URL mappings are stored, resulting in improved performance and responsiveness.
+
+\href{https://github.com/PSesharao/URL-Shortener}{Github}
+
+\end{itemize}
+
+\divider
+
+\cvproject {\href{https://github.com/PSesharao/narrative-nexus}{Narrative Nexus - OpenAI API Integration with Angular}}
+\begin{itemize}
+
+\item \textbf{TECH STACK : Angular | OpenAI server API } 
+\smallskip
+\textbf{TOOLS : Visual Studio Code | Git | Postman }
+
+\item Allows users to input queries, which are then sent to the \textbf{OpenAI server} using an API key for authentication. The responses from the \textbf{OpenAI API} are rendered seamlessly on the user interface.
+\href{https://github.com/PSesharao/narrative-nexus}{Github}
+
+\end{itemize}
+
 \cvproject{}
  
-
 
