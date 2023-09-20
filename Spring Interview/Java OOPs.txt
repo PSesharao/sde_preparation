@@ -158,6 +158,22 @@ TreeSet uses a tree data structure for storage. Objects are stored in sorted, as
 
 HashCode() and equals()
 
+Both are the methods of the class Object.
+
+The hashCode() method returns an integer value, known as the hash code, for an object.
+
+The primary purpose of hashCode() is to provide a fast way to look up objects in collections such as HashMap, HashSet, and Hashtable.
+
+The hashCode() method should be overridden in your custom classes if you plan to use instances of those classes as keys in hash-based data structures. 
+
+
+
+By default, the equals() method in the Object class compares object references, meaning it checks if two object references point to the same memory location.
+
+When two objects are equal according to their equals() method, their hashCode() values must be the same. 
+However, two objects with the same hashCode() value may or may not be equal according to their equals() method.
+
+
 If two Objects are equal, according to the equals(Object) method, then hashCode() method must produce the same Integer 
 on each of the two Objects.
 
