@@ -1,9 +1,9 @@
 \cvsection{Education}
-\cvevent{B.Tech (CSE) - 8.57 CGPA}{Pace Institute of Technology and Sciences}{ 2016 -- 2020 }{Ongole, Andhra Pradesh}{}
+\cvevent{B.Tech (CSE) - 8.52 CGPA}{Pace Institute of Technology and Sciences}{ 2016 -- 2020 }{Ongole, Andhra Pradesh}{}
 
 \cvevent{Intermediate (MPC) - 98.3\%}{Sri Chaitanya Junior College}{ 2014 –- 2016 }{Ongole, Andhra Pradesh}{}
 
-\cvevent{SSC - 9.5 CGPA }{Z.P.H.S Pondur }{ 2013 }{Pondur , Andhra Pradesh }{}
+\cvevent{SSC - 9.5 CGPA }{Z.P.H.S Pondur }{ 2013 -- 2014 }{Pondur , Andhra Pradesh }{}
 
 
 % \cvachievement{\faTrophy}{}{Received accolades at Atos for Best Performance in team.}

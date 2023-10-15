@@ -124,6 +124,12 @@
   \item \textbf{Spring Boot , Angular }  
   \item \textbf{HTML,CSS , Bootstrap } 
   \end{itemize}
+   \smallskip
+  \item \large{\textbf{Technologies \& Cloud}} 
+  \begin{itemize}
+  \smallskip
+  \item \textbf{Microservices,Azure CI/CD, AWS S3, RDS,Cloud Watch }
+  \end{itemize}
   \smallskip
   \item \large{\textbf{Version Control}}
   \begin{itemize}
@@ -149,7 +155,6 @@
 % \item \textbf{MongoDB}, \textbf{Firebase}, \textbf{SanityIO} 
 % \item \textbf{Bootstrap}, \textbf{Tailwind CSS}, \textbf{Material UI} 
 % \end{itemize}
-\smallskip
 
 \cvsection{CERTIFICATIONS} 
 \smallskip
