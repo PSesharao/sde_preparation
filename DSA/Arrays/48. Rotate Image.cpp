@@ -17,6 +17,10 @@ Intuition: By observation, we see that the first column of the original
  why we transpose the matrix and then reverse each row, and since we are 
  making changes in the matrix itself space complexity gets reduced to O(1).
 
+1 2 3       1 4 7        7 4 1
+4 5 6  =>   2 5 8  =>    8 5 2
+7 8 9       3 6 9        9 6 3
+
 or 
 
   clockwise rotate

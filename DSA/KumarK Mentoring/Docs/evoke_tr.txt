@@ -1,0 +1,73 @@
+
+
+class Test {
+	public void m1 (Object o) {
+			System.out.println("Object Version");
+	}
+	public void m1 (String s) {
+			System.out.println("String Version");
+	}
+ 
+	public static void main(String[] args) {
+			Test t = new Test();
+			t.m1(new Object());
+			t.m1("Check");
+			t.m1(null);
+	}
+}
+
+
+
+
+class Test {
+	public static void main(String[] args) {
+		try {
+			System.out.println(10/0);
+		} catch(Exception e) {
+			System.out.println("Exception");
+		} catch (ArithmeticException ex) {
+			System.out.println("Arithmetic Exception");
+		}
+}
+
+
+
+
+
+
+String s1 = new String("YCCM");
+String s2 = new String("YCCM");
+System.out.println(s1 == s2);     // false 
+ 
+String s3 = "YCCM";
+System.out.println(s1 == s3);  // false 
+ 
+String s4 = "YCCM";
+System.out.println(s3 == s4);  // true 
+ 
+String s5 = "YC" + "CM";
+System.out.println(s4 == s5);  // true 
+
+
+public boolean 
+
+{
+	String str = "mahatma" ; 
+    int len = str.length() ; 
+   
+    int low =0 , int high = len-1 ; 
+   
+    while(low <= high ){
+		if(str.charAt(low) !=  str.charAt(high) )
+		     return false  ; 
+		
+		else {
+				low ++ ; 
+				high -- ; 
+		}
+   } 
+    return true ;    
+} 
+
+
+TC : O(len/2)
