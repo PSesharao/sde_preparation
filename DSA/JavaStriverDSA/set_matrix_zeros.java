@@ -9,7 +9,6 @@ class Solution {
 
 }
 
-// sum_of_all_subarrays_in_arithmetic_progression_0_or_1
 
 class JavaMain {
 
