@@ -15,3 +15,4 @@ class Singleton{
 public class SingletonDesignPattern {
 
 }
+
