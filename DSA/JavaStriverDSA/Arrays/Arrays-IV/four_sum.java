@@ -49,7 +49,7 @@ class JavaMain {
                         while( (third < fourth) && nums[third] == curr.get(2) )
                             third ++ ;
  
-                        // skipping duplicates for third element
+                        // skipping duplicates for fourth element
                         while( (third < fourth) && nums[fourth] == curr.get(3) )
                             fourth -- ;
  

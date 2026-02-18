@@ -17,6 +17,29 @@ class JavaMain {
     private static final int minVal = Integer.MIN_VALUE + 10 ; 
     private static final int maxVal = Integer.MAX_VALUE - 10 ;
 
+
+    private static List<List<Integer>> generate(int R) {
+        List<List<Integer>> ansList = new ArrayList<>();
+        for( int i=0 ; i<R ; i++ ){
+            List<Integer> list = new ArrayList<>() ; 
+
+            for( int j=0 ; j<=i ; j++ ) {
+
+                if( j==0 || j==i )
+                    list.add(1) ; 
+
+                else {
+
+                    int val = ansList.get(i-1).get(j) +  ansList.get(i-1).get(j-1) ; 
+                    list.add(val) ;
+
+                }
+            }
+            ansList.add(list) ; 
+        }
+        return ansList ; 
+    }
+
     private static List<List<Integer>> generate(int R) {
 
         List<List<Integer>> pascal = new ArrayList<>(R) ; 
