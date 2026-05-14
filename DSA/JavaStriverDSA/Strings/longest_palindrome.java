@@ -5,6 +5,14 @@ import java.util.concurrent.* ;
 import java.util.stream.* ; 
 
 
+@SpringBootApplication
+public class MyApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(MyApplication.class, args);
+    }
+}
+
+
 class JavaMain {
 
     private static FastReader in;
