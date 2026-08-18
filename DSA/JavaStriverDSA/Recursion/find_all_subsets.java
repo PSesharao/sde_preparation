@@ -5,6 +5,7 @@ import java.util.concurrent.* ;
 import java.util.stream.* ; 
 
 
+
 class JavaMain {
 
     private static FastReader in;
@@ -29,28 +30,42 @@ class JavaMain {
         sumOfSubsets(A , cur_sum , ind+1 , subSetSumList ) ; 
     }
 
+    private static void findAllSubSets(int A[] 
+        , int ind , List<Integer> currList 
+        , List<List<Integer>> allSubSetList ) {
 
-
-    private static void subSetSum(int A[] , int idx , int sum 
-        , List<Integer> list) {
-
-        if(idx == A.length ) {
-            list.add(sum) ;
+        if( ind == A.length ) {
+            allSubSetList.add( new ArrayList<> (currList) ) ; 
+            // otherwise during backtracking , it gets cleaned up
+            // so each reference of currList will be empty after we move 
+            // out of this function.
             return ; 
         }
 
-        subSetSum(A , idx+1 , sum+A[idx] , list ) ;
-        subSetSum(A , idx+1 , sum , list ) ;
+        // include 
+        currList.add(A[ind]) ; 
+        findAllSubSets( A , ind+1 , currList , allSubSetList ) ;
+
+        // exclude
+        currList.remove(currList.size() - 1 ) ; 
+        findAllSubSets( A , ind+1 , currList , allSubSetList ) ;
+
     }
- 
 
 
     public static void main( String[] args ) throws IOException {
         initialize();  
-        List<Integer> list = new ArrayList<>() ; 
-        int A[] = {5,2,1} ;
-        subSetSum(A , 0 , 0 , list) ;
-        out.println(list);
+        int A[] = {5 , 2 , 1} ; 
+        List<Integer> currList = new ArrayList<>() ; 
+        List<List<Integer>> allSubSetList = new ArrayList<>() ; 
+
+        findAllSubSets( A , 0 , currList , allSubSetList ) ; 
+        out.println(allSubSetList) ;
+
+        List<Integer> subSetSumList = new ArrayList<>() ; 
+
+        sumOfSubsets( A , 0 , 0 , subSetSumList ) ; 
+        out.println(subSetSumList) ;
         close() ; 
     }
 
