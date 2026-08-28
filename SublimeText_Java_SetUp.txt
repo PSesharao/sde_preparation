@@ -136,3 +136,21 @@ public class FastWriter {
 {
     "shell_cmd": "javac -d bin $file && java -cp bin JavaMain"
 }
+
+
+
+// Preferences
+
+{
+	"color_scheme": "Packages/Material Theme/schemes/Material-Theme.tmTheme",
+	"theme": "Material-Theme.sublime-theme",
+	"ignored_packages":
+	[
+		"Vintage",
+	],
+	"font_size": 10.5,
+	"font_face": "Source Code Pro",
+	"index_files": false,
+	"highlight_line": true,
+	"caret_style": "phase",
+}
