@@ -1,0 +1,172 @@
+
+// JavaMain.java
+
+import java.io.*;
+import java.util.*;
+import java.util.function.* ; 
+import java.util.concurrent.* ; 
+import java.util.stream.* ; 
+
+
+class Solution {
+    public String greetUser(String name ) {
+        return "Hello " + name ; 
+    }
+}
+
+class JavaMain {
+
+    private static FastReader in;
+    private static FastWriter out ;
+
+    public static void main(String[] args) throws IOException  {
+        initialize(); 
+        Solution sol = new Solution() ; 
+        String name = in.nextLine() ; 
+        out.println(name) ; 
+        out.println(sol.greetUser(name)) ;  
+        out.println("Hello Every one , how are you all doing ? ") ; 
+        close() ; 
+    }
+
+    
+    private static void initialize() throws IOException , FileNotFoundException{
+        in = new FastReader();
+        out = new FastWriter();
+    }
+
+    private static void close() throws IOException  {
+        in.close();
+        out.close();
+    }
+}
+
+// FastReader.java 
+
+
+// https://github.com/dr0nser/fast-io-java
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.FileNotFoundException ; 
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+import java.io.FileReader;
+
+public class FastReader {
+    BufferedReader br;
+    StringTokenizer st;
+
+    public FastReader() throws FileNotFoundException {
+        //br = new BufferedReader(new InputStreamReader(System.in));
+        br = new BufferedReader(new FileReader("input.txt"));
+    }
+
+    String next() {
+        while (st == null || !st.hasMoreTokens()) {
+            try {
+                st = new StringTokenizer(br.readLine());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return st.nextToken();
+    }
+
+    int nextInt() {
+        return Integer.parseInt(next());
+    }
+
+    long nextLong() {
+        return Long.parseLong(next());
+    }
+
+    double nextDouble() {
+        return Double.parseDouble(next());
+    }
+
+    String nextLine() {
+        String str = "";
+        try {
+            str = br.readLine().trim();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return str;
+    }
+
+    public void close() throws IOException {
+        br.close();
+        
+    }
+}
+
+// FastWriter.java 
+
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.FileNotFoundException ; 
+import java.io.OutputStreamWriter;
+import java.io.FileWriter;
+
+public class FastWriter {
+    private final BufferedWriter bw;
+
+    public FastWriter() throws  IOException , FileNotFoundException {
+        //this.bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        this.bw = new BufferedWriter(new FileWriter("output.txt"));
+    }
+
+    public void print(Object object) throws IOException {
+        bw.append("" + object);
+    }
+
+    public void println(Object object) throws IOException {
+        print(object);
+        bw.append("\n");
+    }
+
+    public void close() throws IOException {
+        bw.close();
+    }
+}
+
+// Java_Compile_Run 
+
+{
+    "shell_cmd": "javac -d bin $file && java -cp bin JavaMain"
+}
+
+// Preferences
+
+{
+	"color_scheme": "Packages/Material Theme/schemes/Material-Theme.tmTheme",
+	"theme": "Material-Theme.sublime-theme",
+	"ignored_packages":
+	[
+		"Vintage",
+	],
+	"font_size": 10.5,
+	"font_face": "Source Code Pro",
+	"index_files": false,
+	"highlight_line": true,
+	"caret_style": "phase",
+}
+
+
+
+{
+    "theme": "Material-Theme.sublime-theme",
+    "color_scheme": "Packages/Material Theme/schemes/Material-Theme.tmTheme",
+    
+    //"font_face": "Cascadia Mono",
+    //"font_face": "Consolas" ,
+    "font_face": "Source Code Pro",
+    //"font_face": "Hasklig",
+    "font_size": 11,
+    "font_options": ["directwrite"],
+	//"font_face": "Consolas",
+	"index_files": false,
+	"highlight_line": true,
+	"caret_style": "phase",
+}
