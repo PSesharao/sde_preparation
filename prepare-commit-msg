@@ -1,0 +1,12 @@
+#!/bin/sh
+
+#printf "%s" "on $(date +'%a, %b %d, %Y  %r')" >> "$1"
+
+#echo -n "on $(date +'%a, %b %d, %Y  %r')" >> "$1"
+
+#echo "$1 on $(date +'%a, %b %d, %Y  %r')" > "$1"
+
+
+#!/bin/sh
+message=$(cat "$1")
+echo "$message on $(date +'%a, %b %d, %Y  %r')" > "$1"
