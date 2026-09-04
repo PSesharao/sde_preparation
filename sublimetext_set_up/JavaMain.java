@@ -5,12 +5,6 @@ import java.util.concurrent.* ;
 import java.util.stream.* ; 
 
 
-class Solution {
-    public String greetUser(String name ) {
-        return "Hello " + name ; 
-    }
-}
-
 class JavaMain {
     
     private static FastReader in;
@@ -18,21 +12,32 @@ class JavaMain {
 
     public static void main(String[] args) throws IOException  {
         initialize(); 
-        Solution sol = new Solution() ; 
-        String name = in.nextLine() ; 
-        out.println(name) ; 
-        out.println(sol.greetUser(name)) ;  
-        out.println("Hello Every one , how are you all doing ? ") ; 
+
+        List<String> words = 
+        Arrays.asList("Apple", "Java17", "Banana", "Stream API");
+
+
+        String ans =
+        words
+        .stream()
+        .filter( word -> word.chars().
+            noneMatch( ch -> Character.isDigit(ch) ) )
+        .max( (word1,word2) 
+            -> Integer.compare(word1.length() , word2.length() ) )
+        .orElse(null) ;
+
+        out.println(ans);
+
         close() ; 
     }
 
     
-    private static void initialize() throws IOException , FileNotFoundException{
+    private static void initialize() throws IOException , FileNotFoundException {
         in = new FastReader();
         out = new FastWriter();
     }
 
-    private static void close() throws IOException  {
+    private static void close() throws IOException {
         in.close();
         out.close();
     }

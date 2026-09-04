@@ -1,3 +1,1 @@
-input.txt
-Hello input.txt
-Hello Every one , how are you all doing ? 
+Stream API
