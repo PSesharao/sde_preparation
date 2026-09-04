@@ -137,8 +137,6 @@ public class FastWriter {
     "shell_cmd": "javac -d bin $file && java -cp bin JavaMain"
 }
 
-
-
 // Preferences
 
 {
@@ -150,6 +148,24 @@ public class FastWriter {
 	],
 	"font_size": 10.5,
 	"font_face": "Source Code Pro",
+	"index_files": false,
+	"highlight_line": true,
+	"caret_style": "phase",
+}
+
+
+
+{
+    "theme": "Material-Theme.sublime-theme",
+    "color_scheme": "Packages/Material Theme/schemes/Material-Theme.tmTheme",
+    
+    //"font_face": "Cascadia Mono",
+    //"font_face": "Consolas" ,
+    "font_face": "Source Code Pro",
+    //"font_face": "Hasklig",
+    "font_size": 11,
+    "font_options": ["directwrite"],
+	//"font_face": "Consolas",
 	"index_files": false,
 	"highlight_line": true,
 	"caret_style": "phase",
