@@ -13,22 +13,51 @@ class JavaMain {
     private static final int minVal = Integer.MIN_VALUE + 10 ; 
     private static final int maxVal = Integer.MAX_VALUE - 10 ;
 
-    private static void sumOfSubsets( int A[] , int cur_sum , 
-        int ind , List<Integer> subSetSumList ) {
+    // using for-loop + recursion
+    
+    private static void findAllSubSequences( int A[] , int start , 
+         List<Integer> currList ,
+         List<List<Integer>> allSubSeqList ) {
+
+        allSubSeqList.add( new ArrayList<>(currList) );
+
+        for( int i = start ; i < A.length ; i++ ){
+
+            currList.add( A[i] );
+            findAllSubSequences(A , i+1 , currList , allSubSeqList ) ; 
+            currList.remove( currList.size() -1 );
+        }
+    }
+
+    private static void findAllSubSets2(int A[] 
+        , int ind , List<Integer> currList 
+        , List<List<Integer>> allSubSetList ) {
 
         if( ind == A.length ) {
-            subSetSumList.add(cur_sum) ; 
-            return ;  
+            allSubSetList.add( new ArrayList<> (currList) ) ; 
+            // otherwise during backtracking , it gets cleaned up
+            // so each reference of currList will be empty after we move 
+            // out of this function.
+            return ; 
         }
 
-        // include
-        cur_sum += A[ind] ;
-        sumOfSubsets(A , cur_sum , ind+1 , subSetSumList ) ; 
-
+        
         // exclude
-        cur_sum -= A[ind] ;
-        sumOfSubsets(A , cur_sum , ind+1 , subSetSumList ) ; 
+        findAllSubSets2( A , ind+1 , currList , allSubSetList ) ;
+
+        // include 
+        currList.add(A[ind]) ; 
+        findAllSubSets2( A , ind+1 , currList , allSubSetList ) ;
+
+        // If you omit the below line, every addition to currList persists 
+        // permanently across every branch of the recursion tree 
+        // because they all reference the same memory address.
+
+        currList.remove( currList.size() - 1 ) ; 
+
+
     }
+
 
     private static void findAllSubSets(int A[] 
         , int ind , List<Integer> currList 
@@ -59,13 +88,10 @@ class JavaMain {
         List<Integer> currList = new ArrayList<>() ; 
         List<List<Integer>> allSubSetList = new ArrayList<>() ; 
 
-        findAllSubSets( A , 0 , currList , allSubSetList ) ; 
+        // findAllSubSets2( A , 0 , currList , allSubSetList ) ; 
+        findAllSubSequences( A , 0 , currList , allSubSeqList ) ;
+
         out.println(allSubSetList) ;
-
-        List<Integer> subSetSumList = new ArrayList<>() ; 
-
-        sumOfSubsets( A , 0 , 0 , subSetSumList ) ; 
-        out.println(subSetSumList) ;
         close() ; 
     }
 
