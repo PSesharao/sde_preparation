@@ -26,7 +26,7 @@ class JavaMain {
         Arrays.sort(nums) ;
         for( int first=0 ; first< n-3 ; first++ ) {
             for( int second = first+1 ; second<n-2 ; second++ ) {
-                long target1 =  target - ( 0l + nums[first] + nums[second] ) ; 
+                long target1 =  target - ( 0l + nums[first] + nums[second] ) ; // to avoid overflow of int
                 int third = second+1 ; 
                 int fourth = n-1 ; 
                 while( third < fourth ) {
