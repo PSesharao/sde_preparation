@@ -18,6 +18,33 @@ class JavaMain {
     private static final int maxVal = Integer.MAX_VALUE - 10 ;
 
     // private static final int inf = (int) 1e9+1 ;
+
+   public static int lengthOfLongestSubstring(String str) {
+        
+        int maxLen = 0 ;
+        int l = 0 ;
+
+        Map<Character , Integer> map 
+        = new HashMap<>() ;
+
+        int n = str.length() ; 
+
+        for(int r=0 ; r<n ; r++ ) {
+
+            char ch = str.charAt(r) ;
+
+            if( map.containsKey(ch) ) {
+                int k = map.get(ch) ;
+                l = Math.max( k+1 , l ) ;
+            }
+
+            map.put(ch , r) ;
+            maxLen = Math.max( r-l+1 , maxLen ) ; 
+        }
+
+        return maxLen ; 
+
+    } 
     
    public static int lengthOfLongestSubstring(String str) {
         int n = str.length() ; 

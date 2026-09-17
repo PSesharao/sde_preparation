@@ -29,7 +29,7 @@ class JavaMain {
         for(int num : nums )
             set.add(num) ;
  
-        int ans = 0 ; 
+        int ans = 1 ; 
         int count ; 
         for(int num : set ){ // giving TLE if we traverse through the array nums ,
             // instead it is better if we traverse the set directly.
